@@ -581,13 +581,12 @@
 
           key = hotkey;
 
-          hotkeys.add({
-            combo: hotkey,
-            description: attrs.hotkeyDescription,
-            callback: func,
-            action: attrs.hotkeyAction,
-            allowIn: allowIn
-          });
+          hotkeys.add(
+            hotkey,
+            attrs.hotkeyDescription,
+            func,
+            attrs.hotkeyAction,
+            allowIn);
         });
 
         // remove the hotkey if the directive is destroyed:
@@ -1017,7 +1016,7 @@
     }
 
     function _belongsTo(element, ancestor) {
-        if (element === document) {
+        if (element === null || element === document) {
             return false;
         }
 
